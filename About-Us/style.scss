@@ -43,6 +43,20 @@
   }
 }
 
+.parallax-slide {
+  height: 100vh;
+}
+
+#parallax1 {
+  background: url("https://static.pexels.com/photos/226232/pexels-photo-226232.jpeg") no-repeat center;
+  background-attachment: fixed;
+}
+
+#parallax2 {
+  background: url("https://static.pexels.com/photos/226232/pexels-photo-226232.jpeg") no-repeat center;
+  background-attachment: fixed;
+}
+
 section {
   position: relative;
   height: 110vh;
