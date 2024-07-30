@@ -1259,7 +1259,18 @@ img{
     z-index: 10000000;
 }
 .nous-logo img{
-   width: 100%;
-    max-width: 300px;
-    height: auto;
+   width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+}
+#replay{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 10000000;
+}
+#replay img{
+    width: 100%;
+    max-width: 80rem !important;
+    height: 40rem !important;
 }
