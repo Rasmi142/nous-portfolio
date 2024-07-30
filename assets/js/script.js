@@ -1,6 +1,5 @@
 $(document).ready(function () {
   init_loader();
-  initializeParticles();
 });
 
 /* --------------------------------------------
@@ -10,127 +9,41 @@ function init_loader() {
   $(".page-loader").delay(9500).slideUp("linear");
 }
 
-/* --------------------------------------------
-     tsParticles Initialization
-     --------------------------------------------- */
-function initializeParticles() {
-  const options = {
-    particles: {
-      number: {
-        value: 40,
-        density: {
-          enable: true,
-          value_area: 400,
-        },
-      },
-      color: {
-        value: "#fff",
-      },
-      shape: {
-        type: "polygon",
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-        polygon: {
-          nb_sides: 15,
-        },
-        image: {
-          src: "img/github.svg",
-          width: 100,
-          height: 100,
-        },
-      },
-      opacity: {
-        value: 0.5,
-        random: true,
-        animation: {
-          enable: true,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false,
-        },
-      },
-      size: {
-        value: 2,
-        random: false,
-        animation: {
-          enable: false,
-          speed: 80,
-          size_min: 0.1,
-          sync: false,
-        },
-      },
-      links: {
-        enable: true,
-        distance: 300,
-        color: "#ff9ee0",
-        opacity: 0.8,
-        width: 2,
-      },
-      move: {
-        enable: true,
-        speed: 4,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      detects_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "grab",
-        },
-        onclick: {
-          enable: false,
-          mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 800,
-          links: {
-            opacity: 1,
-          },
-        },
-        bubble: {
-          distance: 800,
-          size: 80,
-          duration: 2,
-          opacity: 0.8,
-          speed: 3,
-        },
-        repulse: {
-          distance: 400,
-          duration: 0.4,
-        },
-        push: {
-          quantity: 4,
-        },
-        remove: {
-          quantity: 2,
-        },
-      },
-    },
-    retina_detect: true,
-  };
+const particlesContainer = document.getElementById("laptop");
 
-  tsParticles
-    .load("tsparticles", options)
-    .then(() => {
-      console.log("Particles.js loaded successfully.");
-    })
-    .catch((err) => {
-      console.error("Failed to load particles.js:", err);
-    });
+// Check if the element exists and then set the z-index
+if (particlesContainer) {
+  particlesContainer.style.zIndex = "1"; // Set to desired value
 }
+const container = document.getElementById("grid-container");
+for (let i = 0; i < 64; i++) {
+  const square = document.createElement("div");
+  square.className = "square";
+  square.textContent = i;
+  container.appendChild(square);
+}
+
+const staggerFromValues = ["left", "end", "center", "edges", "random"];
+let staggerIndex = 0;
+
+function animateSquares() {
+  gsap.to(".square", {
+    duration: 1,
+    z: 150,
+    repeat: 1,
+    yoyo: true,
+    repeatDelay: 1,
+    stagger: {
+      grid: "auto",
+      from: staggerFromValues[staggerIndex],
+      amount: 3,
+    },
+    ease: "back.out(1.7)",
+    onComplete: function () {
+      staggerIndex = (staggerIndex + 1) % staggerFromValues.length;
+      animateSquares();
+    },
+  });
+}
+
+animateSquares();

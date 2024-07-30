@@ -198,29 +198,262 @@ body::-webkit-scrollbar-thumb {
   margin: 5rem 0 0 2rem;
 }
 
-.left-herosection .xb-item--title {
+.xb-item--title {
   font-size: 80px;
   line-height: 110px;
   letter-spacing: -2.4px;
   text-transform: uppercase;
   margin: 0; 
-  color: white;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+  color: white; 
 }
 
 .left-herosection .xb-item--title .sp-two {
   color: #868686; /* Secondary color */
 }
-
-.left-herosection .xb-item--title .sp-one {
+.xb-item--title .sp-one {
   color: #c552ec; /* Highlight color */
 }
-.right-herosection{
-  width: 50%;
+
+.geo-arrow {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-miterlimit: 10
 }
-.up{
-  z-index: 118811111111 !important;
+.geo-arrow2 {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-miterlimit: 10
+}
+
+/* Main container */
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.main:before,
+.main:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -3;
+}
+
+.main:before {
+  right: 0;
+  bottom: -19px;
+  height: 30em;
+  width: 30em;
+  border-radius: 30em;
+  background: linear-gradient(#00f, #800080); /* Replace $blue and $purple with actual colors */
+  align-self: flex-end;
+  animation: gradient-fade 8s ease-in-out 3s infinite alternate;
+}
+
+.main:after {
+  top: 0;
+  left: 30px;
+  height: 10em; /* Replace $circle-unit with actual size */
+  width: 10em; /* Replace $circle-unit with actual size */
+  border-radius: 10em; /* Replace $circle-unit with actual size */
+  background: linear-gradient(#00f, #800080); /* Replace $blue and $purple with actual colors */
+  animation: gradient-fade-alt 6s ease-in-out 3s infinite alternate;
+}
+
+.main__text-wrapper {
+  position: relative;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__text-wrapper:before,
+.main__text-wrapper:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.main__text-wrapper:before {
+  z-index: -1;
+  top: -3em;
+  right: -3em;
+  width: 13em; /* Replace $circle-unit with actual size */
+  height: 13em; /* Replace $circle-unit with actual size */
+  opacity: 0.7;
+  border-radius: 13em; /* Replace $circle-unit with actual size */
+  background: linear-gradient(#00f, #800080); /* Replace $ltblue and $purple with actual colors */
+  animation: rotation 7s linear infinite;
+}
+
+.main__text-wrapper:after {
+  z-index: -1;
+  bottom: -20em; /* Replace $circle-unit with actual size */
+  width: 20em; /* Replace $circle-unit with actual size */
+  height: 20em; /* Replace $circle-unit with actual size */
+  border-radius: 20em; /* Replace $circle-unit with actual size */
+  background: linear-gradient(#f0f, #800080); /* Replace $magenta and $purple with actual colors */
+  animation: rotation 7s linear infinite;
+}
+
+/* Arrow styles */
+.arrow {
+  z-index: 1000;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.arrow--top {
+  top: 0;
+  left: -5em;
+}
+
+.arrow--bottom {
+  bottom: 0;
+  right: 3em;
+}
+
+/* Circle styles */
+.circle {
+  transform: translate(50%, -50%) rotate(0deg);
+  transform-origin: center;
+}
+
+.circle--ltblue {
+  height: 20em; /* Replace $circle-unit with actual size */
+  width: 20em; /* Replace $circle-unit with actual size */
+  border-radius: 20em; /* Replace $circle-unit with actual size */
+  background: linear-gradient(#00f, #00f); /* Replace $ltblue and $blue with actual colors */
+}
+
+/* Backdrop style */
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-color: pink;
+}
+
+/* Dotted circle style */
+.dotted-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.3;
+  animation: rotation 38s linear infinite;
+}
+
+/* SVG animation styles */
+.draw-in {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 10;
+  animation: draw 15s ease-in-out alternate infinite;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Item-to animation */
+.item-to {
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.bounce-1 {
+  animation-name: bounce-1;
+  animation-timing-function: ease;
+}
+
+.bounce-2 {
+  animation-name: bounce-2;
+  animation-timing-function: ease;
+}
+
+.bounce-3 {
+  animation-name: bounce-3;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-3 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Gradient fade animations */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-fade {
+  from {
+    transform: translate(10%, -10%) rotate(0deg);
+  }
+  to {
+    transform: translate(50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes gradient-fade-alt {
+  from {
+    transform: translate(-20%, 20%) rotate(0deg);
+  }
+  to {
+    transform: translate(-60%, 60%) rotate(360deg);
+  }
+}
+.hero-content{
+  z-index: 1111111!important;
 }
