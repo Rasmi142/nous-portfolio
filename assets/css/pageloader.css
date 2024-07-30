@@ -1233,13 +1233,13 @@ html, body {
    }
 }
 
-img{
+/* img{
     width: 100px;
     height: 100px;
     border-radius: 15%;
     transition: transform 0.3s;
     animation: float 6s ease-in-out infinite;
-}
+} */
 @keyframes float {
     0%{
        transform: translateY(0px); 
