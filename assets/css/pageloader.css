@@ -17,7 +17,7 @@ html, body {
     top: 0;
     left: 0;
     background: #fefefe;
-    z-index: 100000;
+    z-index: 10000000;
     /* transition: transform 9s ease-out, opacity 9s ease-out; */
 }
 /* .page-loader.hide {
