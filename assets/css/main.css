@@ -55,7 +55,7 @@
   --color-black: #000;
   --color-default: #A8A8A8;
   --color-gray: #F8F8F8;
-  --color-border: #EFF5F8;
+  --color-border: #eff5f838;
   --easing: cubic-bezier(0.67, 0.04, 0.3, 0.91); }
 
 /* reset css start */
@@ -112,11 +112,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
 }
-.navmenu {
-  display: flex;
-  justify-content: center;
-  /* Removed -webkit-backdrop-filter if only .menu-content needs it */
-}
+
 
 .menu-content {
   border-radius: 30px;
@@ -162,6 +158,16 @@ body::-webkit-scrollbar-thumb {
   z-index: -1;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s; 
   border-radius: 25px;
+}
+.menu-content a:visited{
+  text-decoration: none!important;
+  color: #EFF5F8!important;
+
+}
+.menu-content a:active{
+  text-decoration: none!important;
+  color: #EFF5F8!important;
+
 }
 
 .menu-content li:hover::before {
@@ -457,8 +463,39 @@ body::-webkit-scrollbar-thumb {
 .hero-content{
   z-index: 1111111!important;
 }
-.nav-logo{
-  width: 40px;
-  height: auto;
+/* .nav-logo{
+  display:flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+  margin: 1rem;
+  display: inline-block;
+} */
 
+
+.nav-logo {
+  flex: 0 0 auto; 
+  display: inline-block;
+
+}
+
+.nav-logo img {
+  width: 60px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.navmenu {
+  flex: 1; /* Allow the navmenu to take up remaining space */
+  display: flex;
+  justify-content: center; /* Center the menu horizontally */
+}
+
+.navflex {
+  display: flex;
+  justify-content: space-between; /* Distribute space between the logo and the navmenu */
+  align-items: center; /* Vertically center items */
+  width: 100vw;
+  padding: 0 1rem; /* Optional: Add some horizontal padding */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  background-color: transparent;
 }
