@@ -1271,6 +1271,6 @@ html, body {
 }
 #replay img{
     width: 100%;
-    max-width: 80rem !important;
-    height: 40rem !important;
+    max-width: 60rem !important;
+    height: 28rem !important;
 }

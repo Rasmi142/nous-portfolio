@@ -457,3 +457,8 @@ body::-webkit-scrollbar-thumb {
 .hero-content{
   z-index: 1111111!important;
 }
+.nav-logo{
+  width: 40px;
+  height: auto;
+
+}
